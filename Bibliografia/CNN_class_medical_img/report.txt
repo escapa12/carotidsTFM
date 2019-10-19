@@ -1,0 +1,53 @@
+Some things that must appear to the report:
+
+The mainstream deep CNN architectures (e.g., AlexNet and GoogLeNet) contain
+millions of free parameters to train, and thus require
+sufficiently large numbers of labeled medical images.
+
+However, collecting and annotating large numbers of medical images still poses significant challenges.
+
+Recently several works tried to deal with this kind of issues with different techniques[ref / exemples]. 
+
+One approach to solve this problem is transfer learning, where a network is
+initialized using weights derived from training on a large dataset. Then only a portion of
+the network (typically the final layers) needs to be fine-tuned for a new smaller dataset. Usually, the pretraining of the weights is done by training a image classification network with large datasets of natural images (i.e ImageNet).
+
+Several works proved a performance improving when using tranfer learning, [AlexNet can be fine-tuned on the PASCAL dataset to sur-
+pass the performance of the ImageNet pre-trained AlexNet].
+
+Obviously the performance of tranfer learning will be heavily influenced by the relation between the pretraining data and the actual data we want to train.
+
+Regarding to our problem, there is no previously trained network which uses ultrasound medical images.
+[dir que obviament no hiha una large dataset with medical images]
+
+However [ref1] showed an improvement in medical image classification tasks when using tranfer learning with natural images as the pretrain dataset. 
+More precisely, the aforementioned work tries several CNN architectures pretrained with the ImageNet dataset to perform to classification problems: 
+X-ray agimes into 2 classes, and CT images into 6 classes. It is specially interesing the fact that they also compare different fine-tune strategies for each of the  architecures.  
+
+Given the results of this work we decided to apply tranfer learning to our classification problem using ImageNet.
+
+Our hypothesis on CNN parameter transfer learning is the following: despite the disparity between natural images and  natural images, CNNs comprehensively trained on the large scale  ImageNet may still be transferred to make medical image recognition tasks more effective. 
+
+
+[Conclusió paper: Tansfer Learning millora. Però va millor si fas un fine-tuning diferent per les diferents parts de la xarxa:
+                    * Part CNN amb lr molt baix. 
+                    * Fully connected part, lr una mica més petit de l'havitual.
+
+Amb keras: Molt fàcil carregar una Neural Network famosa VGG i entrenar només les dense layers 
+]
+
+
+
+CURRENT DEEP LEARNING MODELS IN MEDICAL IMG papers that use  2-5 order of magnitud less that our simpliest NN!!!
+H. Roth, L. Lu, J. Liu, J. Yao, A. Seff, K. M. Cherry, E. Turkbey, and
+R. Summers, “Improving computer-aided detection using convolutional
+neural networks and random view aggregation,” in IEEE Trans. on
+Medical Imaging, 2016.
+
+D. Ciresan, A. Giusti, L. Gambardella, and J. Schmidhuber, “Mitosis
+detection in breast cancer histology images with deep neural networks,”
+in MICCAI, 2013.
+
+W. Zhang, R. Li, H. Deng, L. Wang, W. Lin, S. Ji, and D. Shen, “Deep
+convolutional neural networks for multi-modality isointense infant brain
+image segmentation,” NeuroImage, vol. 108, pp. 214–224, 2015.

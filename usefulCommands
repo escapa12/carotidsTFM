@@ -1,0 +1,21 @@
+### Panell de la GPU processos corrent
+nvidia-smi
+
+### entrar al envidorment python
+source /home/esarle/miniconda2/envs/envTFM/bin/activate envTFM
+
+### correr fitxer python amb theano i keras al environment
+PYTHONPATH=/home/esarle/miniconda2/envs/envTFM/lib/python2.7/site-packages/theano:/home/esarle/miniconda2/envs/envTFM/lib/python2.7/site-packages/keras:/home/esarle/Desktop/codi/multimodal_keras_wrapper:/home/esarle/Desktop/codi/keras_semantic_segmentation:$PYTHONPATH python -u file.py
+### afegir abans de python THEANO_FLAGS='device=cuda' per utilitzar la GPU 
+
+###correr un jupyter notebook des del servidor
+(server console) jupyter notebook --no-browser --port=8080
+(local  console) ssh -N -L 8080:localhost:8080 usuari@xxx.xxx.xxx.xx
+
+### deixar corrent un procés al tancar la sessió (https://askubuntu.com/questions/8653/how-to-keep-processes-running-after-ending-ssh-session)
+
+    ssh into the remote machine
+    start tmux by typing tmux into the shell
+    start the process you want inside the started tmux session
+    leave/detach the tmux session by typing Ctrl+b and then d
+    (to recover session) tmux attach
