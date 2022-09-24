@@ -4,8 +4,8 @@ In this thesis, we explore the effectiveness of Deep Learning techniques in atte
 
 
 ### Datsets:
- * [REGICOR](https://www.regicor.org)
- * [NEFRONA](http://www.nefrona.es)
+ * [REGICOR](https://regicor.cat/es/)
+ * [NEFRONA](https://www.udetma.com/es/proyecto-nefrona/proyecto.html)
 
 
 ### Procedure:
